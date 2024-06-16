@@ -8,8 +8,7 @@ export const btnStyle = css`
   justify-content: center;
   align-items: center;
   ${theme.fonts.Title};
-  border-radius: 30px;
-  border: 1px solid #d5d5d5;
+  border: 1px solid ${theme.colors.gray01};
 
   cursor: pointer;
 `;
