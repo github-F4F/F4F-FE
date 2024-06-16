@@ -10,7 +10,7 @@ const colors = {
 const fonts = {
   Title: css`
     font-family: 'Noto Sans';
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-style: normal;
     font-weight: 700;
     line-height: 136.241%;
