@@ -4,6 +4,7 @@ import Button from '../../components/@common/button/Button';
 import Bar from '../../components/bar/Bar';
 import { ButtonWrapper, HomePageWrapper, LoginContainer, SubText, SubTextWrapper } from './HomePage.style';
 import theme from '../../styles/theme';
+import Input from '../../components/@common/input/Input';
 
 const HomePage = () => {
   return (
@@ -35,9 +36,7 @@ const HomePage = () => {
             </div>
           </article>
           <article css={ButtonWrapper}>
-            <Button variant="bgWhite" size="large" handleBtnClick={() => {}}>
-              GitHub 토큰을 입력해주세요
-            </Button>
+            <Input variant="default" size="large" placeholder="GitHub 토큰을 입력해주세요" />
           </article>
           <article css={ButtonWrapper}>
             <Button variant="bgBlack" size="large" handleBtnClick={() => {}}>
