@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import Loading from '../../../components/@common/loading/Loading';
-import { useGetUser } from '../../../hooks/useGetUser';
+import { useGetUser } from '../../../hooks/queries/useGetUser';
 import theme from '../../../styles/theme';
 
 const UserInfo = () => {
@@ -37,35 +37,22 @@ const UserInfo = () => {
                 font-weight: 500;
               `}
             >{`${data.login}`}</p>
-            {data.bio ? (
-              <p
-                css={css`
-                  padding: 0.5rem 0;
-                  ${theme.fonts.body03}
-                  font-weight: 300;
-                  color: ${theme.colors.gray02};
-                `}
-              >
-                메롱
-              </p>
-            ) : null}
+
+            <p
+              css={css`
+                padding: 0.5rem 0;
+                ${theme.fonts.body03}
+                font-weight: 300;
+                color: ${theme.colors.gray02};
+              `}
+            >
+              메롱
+            </p>
           </div>
 
           <div css={{ display: 'flex', justifyContent: 'space-between', width: '30rem', marginTop: '2rem' }}>
-            <p
-              css={css`
-                ${theme.fonts.body01}
-              `}
-            >
-              팔로우: {data.followers}명
-            </p>
-            <p
-              css={css`
-                ${theme.fonts.body01}
-              `}
-            >
-              팔로워: {data.following}명
-            </p>
+            <p css={theme.fonts.body01}>팔로우: {data.followers}명</p>
+            <p css={theme.fonts.body01}>팔로워: {data.following}명</p>
           </div>
         </section>
       )}
