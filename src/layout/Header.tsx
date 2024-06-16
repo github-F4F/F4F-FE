@@ -5,22 +5,22 @@ import gitImg from '/assets/images/git.png';
 const Header = () => {
   return (
     <header
-      css={css({
+      css={{
         display: 'flex',
         alignItems: 'center',
-        padding: '14px 20px',
+        padding: '1.4rem 2rem',
         borderBottom: `1px ${theme.colors.gray01} solid`,
         cursor: 'pointer',
-      })}
+      }}
     >
       <img
         src={gitImg}
         alt=""
-        css={css({
-          width: '30px',
-          height: '30px',
+        css={{
+          width: '3rem',
+          height: '3rem',
           marginRight: '16px',
-        })}
+        }}
       />
       <h1
         css={css`
