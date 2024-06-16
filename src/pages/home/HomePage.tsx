@@ -1,6 +1,6 @@
+import Button from '../../components/@common/button/Button';
 import Bar from '../../components/bar/Bar';
 import { HomePageWrapper, LoginContainer } from './HomePage.style';
-import Button from '../../components/@common/button/Button';
 
 const HomePage = () => {
   return (
@@ -15,7 +15,7 @@ const HomePage = () => {
               marginTop: '1rem',
             }}
           >
-            <Button variant="bgWhite" size="small">
+            <Button variant="bgWhite" size="small" handleBtnClick={() => {}}>
               깃허브 토큰 만들러가기
             </Button>
           </div>
