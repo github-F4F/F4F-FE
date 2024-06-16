@@ -34,7 +34,7 @@ const fonts = {
   `,
   body03: css`
     font-family: 'GmarketSans';
-    font-size: 1%.2;
+    font-size: 1.2rem;
     font-style: normal;
     font-weight: 700;
     line-height: 100.03%; /* 16.005px */
