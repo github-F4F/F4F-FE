@@ -1,7 +1,7 @@
 import { BarWrapper } from './Bar.style';
 
 const Bar = () => {
-  return <section css={BarWrapper}></section>;
+  return <div css={BarWrapper} />;
 };
 
 export default Bar;
