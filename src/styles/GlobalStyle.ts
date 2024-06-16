@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import { css } from '@emotion/react';
 
 const globalStyles = css`
   a {
@@ -7,6 +7,8 @@ const globalStyles = css`
 
   * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 
   button {
@@ -26,8 +28,6 @@ const globalStyles = css`
   body,
   html {
     scrollbar-width: none; /* 파이어폭스 스크롤바 숨김 */
-    margin: 0 auto;
-    padding: 0;
     font-size: 62.5%;
     -ms-overflow-style: none; /* 인터넷 익스플로러  스크롤바 숨김 */
     scrollbar-width: none; /* 파이어폭스 스크롤바 숨김 */
@@ -36,10 +36,6 @@ const globalStyles = css`
   }
   #root::-webkit-scrollbar {
     display: none; /* 크롬, 사파리, 오페라, 엣지 스크롤바 숨김 */
-  }
-
-  .custom-toast-margin {
-    margin-bottom: 6.4rem;
   }
 `;
 
