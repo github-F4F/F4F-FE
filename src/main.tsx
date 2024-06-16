@@ -1,12 +1,18 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
-import Styles from "./styles/index.tsx";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import ReactDOM from 'react-dom/client';
+import App from './App.tsx';
+import Styles from './styles/index.tsx';
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <Styles>
-      <App />
-    </Styles>
-  </React.StrictMode>
+const queryClient = new QueryClient();
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <>
+    <QueryClientProvider client={queryClient}>
+      <Styles>
+        <App />
+      </Styles>
+      <ReactQueryDevtools />
+    </QueryClientProvider>
+  </>,
 );
