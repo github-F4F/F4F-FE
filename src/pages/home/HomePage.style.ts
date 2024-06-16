@@ -20,3 +20,9 @@ export const LoginContainer = css({
   border: `0.1rem solid ${theme.colors.gray01}`,
   background: `${theme.colors.white}`,
 });
+
+export const ButtonWrapper = css({
+  display: 'flex',
+  marginLeft: '1.3rem',
+  marginTop: '1rem',
+});
