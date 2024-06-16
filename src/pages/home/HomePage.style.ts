@@ -45,7 +45,8 @@ export const SubText = css({
 export const SubTextWrapper = css({
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
+  justifyContent: 'flex-start',
+  alignItems: 'flex-start',
   marginTop: '1.4rem',
+  marginLeft: '2.1rem',
 });
