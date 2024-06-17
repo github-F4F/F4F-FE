@@ -1,11 +1,11 @@
 import { css } from '@emotion/react';
 import { IcArrow } from '../../assets/svg';
 import Button from '../../components/@common/button/Button';
-import Bar from '../../components/bar/Bar';
 import { ButtonWrapper, HomePageWrapper, LoginContainer, SubText, SubTextWrapper } from './HomePage.style';
 import theme from '../../styles/theme';
 import Input from '../../components/@common/input/Input';
 import useGetToken from '../../hooks/useGetToken';
+import Bar from './components/bar/Bar';
 
 const HomePage = () => {
   const { handleChangeToken, handleClickCheckFollower } = useGetToken();
