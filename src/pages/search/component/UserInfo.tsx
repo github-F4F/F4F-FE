@@ -6,7 +6,7 @@ import theme from '../../../styles/theme';
 const UserInfo = () => {
   // TODO: token 불러오기
 
-  const user_token = 'token';
+  const user_token = localStorage.getItem('token') || '';
 
   const { data, isLoading } = useGetUser(user_token);
 
