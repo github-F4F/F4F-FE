@@ -1,3 +1,4 @@
+import CardList from './component/CardList';
 import UserInfo from './component/UserInfo';
 
 const SearchPage = () => {
@@ -5,10 +6,14 @@ const SearchPage = () => {
     <div
       css={{
         display: 'flex',
-        justifyContent: 'center',
+        flexDirection: 'column',
+        alignItems: 'center',
       }}
     >
       <UserInfo />
+      <div>
+        <CardList />
+      </div>
     </div>
   );
 };
