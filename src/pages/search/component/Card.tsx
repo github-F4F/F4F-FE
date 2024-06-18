@@ -1,6 +1,9 @@
 import { css } from '@emotion/react';
+import { useState } from 'react';
 import { IcArrow } from '../../../assets/svg';
 import Button from '../../../components/@common/button/Button';
+import { useFollowUser } from '../../../hooks/queries/useFollowUser';
+import { useUnFollowUser } from '../../../hooks/queries/useUnFollowUser';
 import theme from '../../../styles/theme';
 
 interface CardProps {
@@ -9,6 +12,22 @@ interface CardProps {
 }
 
 const Card = ({ login, avatar_url }: CardProps) => {
+  const user_token = localStorage.getItem('token') || '';
+
+  const [followed, setFollowed] = useState(true);
+  const { mutate: unFollow } = useUnFollowUser();
+  const { mutate: follow } = useFollowUser();
+
+  const handleBtnClick = () => {
+    if (followed) {
+      unFollow({ user_token, username: login });
+    } else {
+      follow({ user_token, username: login });
+    }
+
+    setFollowed(prev => !prev);
+  };
+
   return (
     <article css={{ display: 'flex', padding: '1rem' }}>
       <img src={avatar_url} alt="" css={{ width: '10rem', marginRight: '4.5rem' }} />
@@ -27,20 +46,20 @@ const Card = ({ login, avatar_url }: CardProps) => {
         </p>
         <Button
           size="small"
-          // TODO: 팔로우 API 추가
-          handleBtnClick={() => {}}
+          variant={followed ? 'bgBlack' : 'bgWhite'}
+          handleBtnClick={() => handleBtnClick()}
           css={{ width: '10rem' }}
           icon={
             <IcArrow
               css={css`
                 & path {
-                  stroke: ${theme.colors.white};
+                  stroke: ${followed ? theme.colors.white : theme.colors.black};
                 }
               `}
             />
           }
         >
-          UnFollow
+          {followed ? 'Unfollow' : 'Follow'}
         </Button>
       </div>
     </article>
