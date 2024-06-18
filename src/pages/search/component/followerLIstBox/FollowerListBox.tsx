@@ -12,7 +12,6 @@ const FollowerListBox = () => {
         <Loading />
       ) : (
         <>
-          <section css={{ marginTop: '2.2rem' }} />
           <section css={FollowerListWrapper}>
             {data?.map(user => (
               <FollowerLists key={user.id} data={[user]} />

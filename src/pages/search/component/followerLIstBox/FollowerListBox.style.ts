@@ -7,7 +7,7 @@ export const FollowerListWrapper = css({
   alignItems: 'center',
   width: '32rem',
   height: '43.6rem',
-  marginTop: '2.7rem',
+  marginTop: '6.5rem',
 
   borderRadius: '12px',
   border: `1px solid ${theme.colors.gray01}`,
