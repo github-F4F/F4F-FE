@@ -1,24 +1,24 @@
 import { css } from '@emotion/react';
 import { IcArrow } from '../../../../assets/svg';
 import Button from '../../../../components/@common/button/Button';
-import { User } from '../../../../types/user';
 import { FollowerContainer, FollowerId, FollowerItem } from '../followerLIstBox/FollowerListBox.style';
 import theme from '../../../../styles/theme';
 
 interface FollowerListsProps {
-  data: User[];
+  login: string;
+  avatar_url: string;
 }
 
 const FollowerLists = (props: FollowerListsProps) => {
-  const { data = [] } = props;
+  const { login, avatar_url } = props;
 
   return (
     <article css={FollowerContainer}>
       <div>
-        <img src={data[0].avatar_url} alt="github profile img" css={{ width: '10rem', height: '10.5rem' }} />
+        <img src={avatar_url} alt="github profile img" css={{ width: '10rem', height: '10.5rem' }} />
       </div>
       <div css={FollowerItem}>
-        <p css={FollowerId}>{data[0].login}</p>
+        <p css={FollowerId}>{login}</p>
         <Button
           variant="bgWhite"
           size="small"
