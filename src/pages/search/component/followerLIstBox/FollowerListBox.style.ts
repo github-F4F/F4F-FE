@@ -8,6 +8,7 @@ export const FollowerListWrapper = css({
   width: '32rem',
   height: '43.6rem',
   marginTop: '6.5rem',
+  overflow: 'auto',
 
   borderRadius: '12px',
   border: `1px solid ${theme.colors.gray01}`,
@@ -35,5 +36,4 @@ export const FollowerItem = css({
   alignItems: 'center',
   justifyContent: 'center',
   gap: '2.6rem',
-  // margin: '1.8rem',
 });
