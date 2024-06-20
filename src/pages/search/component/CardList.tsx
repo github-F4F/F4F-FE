@@ -19,7 +19,13 @@ const CardList = () => {
 
   return (
     <div
-      css={{ height: '500px', overflow: 'auto', borderRadius: '12px', border: '1px solid #D5D5D5', padding: '0 1rem' }}
+      css={{
+        height: '43.6rem',
+        overflow: 'auto',
+        borderRadius: '12px',
+        border: '1px solid #D5D5D5',
+        padding: '0 1rem',
+      }}
     >
       {data?.pages[data?.pages.length - 1].map((user, userIndex) => (
         <Card key={`user-${userIndex}`} {...user} />
