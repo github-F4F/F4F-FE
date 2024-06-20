@@ -37,22 +37,23 @@ const UserInfo = () => {
                 font-weight: 500;
               `}
             >{`${data.login}`}</p>
-
-            <p
-              css={css`
-                padding: 0.5rem 0;
-                ${theme.fonts.body03}
-                font-weight: 300;
-                color: ${theme.colors.gray02};
-              `}
-            >
-              메롱
-            </p>
+            {data.bio && (
+              <p
+                css={css`
+                  padding: 0.5rem 0;
+                  ${theme.fonts.body03}
+                  font-weight: 300;
+                  color: ${theme.colors.gray02};
+                `}
+              >
+                {data.bio}
+              </p>
+            )}
           </div>
 
           <div css={{ display: 'flex', justifyContent: 'space-between', width: '30rem', marginTop: '2rem' }}>
-            <p css={theme.fonts.body01}>팔로우: {data.followers}명</p>
-            <p css={theme.fonts.body01}>팔로워: {data.following}명</p>
+            <p css={theme.fonts.body01}>팔로잉: {data.following}명</p>
+            <p css={theme.fonts.body01}>팔로워: {data.followers}명</p>
           </div>
         </section>
       )}
