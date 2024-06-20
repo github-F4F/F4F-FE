@@ -16,6 +16,8 @@ const SearchPage = () => {
         css={{
           display: 'flex',
           justifyContent: 'center',
+          padding: '6.5rem 0',
+          gap: '5rem',
         }}
       >
         <CardList />

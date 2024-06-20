@@ -1,11 +1,11 @@
 import { css } from '@emotion/react';
+import { useState } from 'react';
 import { IcArrow } from '../../../../assets/svg';
 import Button from '../../../../components/@common/button/Button';
-import { FollowerContainer, FollowerId, FollowerItem } from '../followerLIstBox/FollowerListBox.style';
-import theme from '../../../../styles/theme';
-import { useState } from 'react';
-import { useUnFollowUser } from '../../../../hooks/queries/useUnFollowUser';
 import { useFollowUser } from '../../../../hooks/queries/useFollowUser';
+import { useUnFollowUser } from '../../../../hooks/queries/useUnFollowUser';
+import theme from '../../../../styles/theme';
+import { FollowerContainer, FollowerId, FollowerItem } from '../followerLIstBox/FollowerListBox.style';
 
 interface FollowerListsProps {
   login: string;
@@ -50,7 +50,7 @@ const FollowerLists = (props: FollowerListsProps) => {
               `}
             />
           }
-          css={{ border: `1px solid ${theme.colors.black}` }}
+          css={{ border: `1px solid ${theme.colors.black}`, width: '10rem' }}
           handleBtnClick={() => handleBtnClick()}
         >
           {followed ? 'Unfollow' : 'Follow'}
