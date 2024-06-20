@@ -1,3 +1,4 @@
+import CardList from './component/CardList';
 import UserInfo from './component/UserInfo';
 import FollowerListBox from './component/followerLIstBox/FollowerListBox';
 
@@ -7,17 +8,17 @@ const SearchPage = () => {
       css={{
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
       <UserInfo />
       <div
         css={{
           display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
+        <CardList />
         <FollowerListBox />
       </div>
     </div>
