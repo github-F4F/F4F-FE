@@ -3,7 +3,7 @@ name: Setup Opened Discussions
 on:
   discussion:
     types:
-      - created
+      - opened
 
 jobs:
   label_discussion:
@@ -13,7 +13,7 @@ jobs:
       contents: read
 
     steps:
-      - name: Label discussion by author team
+      - name: Add label to discussion based on author
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -24,17 +24,42 @@ jobs:
             const feTeam = ['keemsebin', 'ExceptAnyone', 'yeji0214'];
             const beTeam = ['joon6093', 'abc5259', 'praisebak', 'jumdo12'];
 
-            let label = null;
-            if (feTeam.includes(author)) label = 'fe';
-            else if (beTeam.includes(author)) label = 'be';
+            let labelName = null;
+            if (feTeam.includes(author)) labelName = 'fe';
+            else if (beTeam.includes(author)) labelName = 'be';
 
-            if (label) {
-              await github.rest.issues.addLabels({
-                owner: repository.owner.login,
-                repo: repository.name,
-                issue_number: discussion.number,
-                labels: [label],
-              });
-            } else {
-              console.log(`No team match found for user: ${author}`);
+            if (!labelName) {
+              console.log(`No label matched for author: ${author}`);
+              return;
             }
+
+            // Get all labels in the repository
+            const { data: allLabels } = await github.rest.issues.listLabelsForRepo({
+              owner: repository.owner.login,
+              repo: repository.name,
+              per_page: 100
+            });
+
+            const matchedLabel = allLabels.find(l => l.name === labelName);
+            if (!matchedLabel) {
+              console.log(`Label '${labelName}' does not exist in the repository.`);
+              return;
+            }
+
+            // Add label using GraphQL
+            const response = await github.graphql(`
+              mutation($labelableId: ID!, $labelIds: [ID!]!) {
+                addLabelsToLabelable(input: { labelableId: $labelableId, labelIds: $labelIds }) {
+                  labelable {
+                    ... on Discussion {
+                      id
+                    }
+                  }
+                }
+              }
+            `, {
+              labelableId: discussion.node_id,
+              labelIds: [matchedLabel.node_id]
+            });
+
+            console.log('Label added successfully:', response);
