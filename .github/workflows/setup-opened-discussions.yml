@@ -3,7 +3,7 @@ name: Setup Opened Discussions
 on:
   discussion:
     types:
-      - opened
+      - created
 
 jobs:
   label_discussion:
