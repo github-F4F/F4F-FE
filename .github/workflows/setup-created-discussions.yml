@@ -1,4 +1,4 @@
-name: Setup Opened Discussions
+name: Setup Created Discussions
 
 on:
   discussion:
@@ -48,3 +48,17 @@ jobs:
               discussionId: discussion.node_id,
               labelIds: [labelNodeId]
             });
+
+      - name: Send notification
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          AUTHOR="${{ github.event.discussion.user.login }}"
+          TITLE="${{ github.event.discussion.title }}"
+          URL="${{ github.event.discussion.html_url }}"
+
+          curl -X POST -H 'Content-type: application/json' \
+            --data "{
+              \"text\": \"💬 새 Discussion이 생성되었습니다!\n*작성자:* ${AUTHOR}\n*제목:* ${TITLE}\n👉 <${URL}|Discussion 바로가기>\"
+            }" \
+            $SLACK_WEBHOOK_URL
